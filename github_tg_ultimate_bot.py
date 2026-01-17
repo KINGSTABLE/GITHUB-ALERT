@@ -8,17 +8,28 @@ import json
 import os
 import pytz
 import random
+from dotenv import load_dotenv
 
-# Telegram API credentials (replace with environment variables in production)
-API_ID = "29714294"
-API_HASH = "bd44a7527bbb8ef23552c569ff3a0d93"
-TELEGRAM_TOKEN = "8478146426:AAGPuhgfnqf7JR9I5Cu2pz0EQoFppJOxuYE"
-TELEGRAM_CHANNEL_ID = "@GITHUB_MONITOR"
-GITHUB_TOKEN = "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"
-ADMIN_ID = 5978396634
-CHANNEL_LINK = "https://t.me/GITHUB_MONITOR"
-MAIN_LINK = "https://t.me/TOOLS_BOTS_KING"
-BOT_LINK = "https://t.me/GITHUB_MONITOR_I_BOT"
+# Load environment variables from .env file
+load_dotenv()
+
+# Telegram API credentials (loaded from environment variables)
+API_ID = os.getenv("API_ID")
+API_HASH = os.getenv("API_HASH")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+TELEGRAM_CHANNEL_ID = os.getenv("TELEGRAM_CHANNEL_ID")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+# Convert ADMIN_ID to integer safely
+try:
+    ADMIN_ID = int(os.getenv("ADMIN_ID"))
+except (TypeError, ValueError):
+    print("Warning: ADMIN_ID in .env is invalid or missing.")
+    ADMIN_ID = 0
+
+CHANNEL_LINK = os.getenv("CHANNEL_LINK")
+MAIN_LINK = os.getenv("MAIN_LINK")
+BOT_LINK = os.getenv("BOT_LINK")
+
 CHANNEL_TEXT = f"\n🔹CHANNEL 🔹\n👉 <a href='{CHANNEL_LINK}'>Join our Telegram Channel</a>\n👉 <a href='{BOT_LINK}'>Join our Telegram Bot</a>\n👉 <a href='{MAIN_LINK}'>Join our Telegram Main Channel</a>"
 POLL_INTERVAL = 30  # seconds
 
