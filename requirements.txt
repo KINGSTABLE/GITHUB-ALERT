@@ -3,3 +3,4 @@ httpx>=0.24
 beautifulsoup4>=4.12
 pytz>=2023.3
 pyrogram
+python-dotenv
